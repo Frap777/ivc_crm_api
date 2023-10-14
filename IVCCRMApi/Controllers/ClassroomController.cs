@@ -15,5 +15,13 @@ namespace IVCCRMApi.Controllers
             IVCContext db = new IVCContext();
             return Ok(db.Classrooms);
         }
+        [HttpPost]
+        public ActionResult Add(Classroom classroom)
+        {
+            IVCContext db = new IVCContext();
+            db.Classrooms.Add(classroom);
+            db.SaveChanges();
+            return Ok(classroom);
+        }
     }
 }
